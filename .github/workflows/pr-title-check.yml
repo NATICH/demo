@@ -1,0 +1,26 @@
+name: PR Compliance
+
+on:
+  pull_request_target:
+    types: [opened, edited, reopened]
+
+# Action should have write permission to make updates to PR
+permissions:
+  pull-requests: write
+  # Uncomment the line below if using the `issue-labels`
+  # option on a private repository.
+
+  # issues: read
+
+jobs:
+  pr-compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mtfoley/pr-compliance-action@main
+        with:
+          # all inputs are optional
+          watch-files: |
+            package.json
+            npm-shrinkwrap.json
+          issue-labels: |
+            accepting prs
