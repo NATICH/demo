@@ -11,9 +11,9 @@ spec:
     namespace: monitoring
   project: default
   source:
-    repoURL: https://github.com/prometheus-community/helm-charts
-    path: charts/kube-prometheus-stack/crds
-    targetRevision: 45.6.0
+    repoURL: https://github.com/NATICH/demo.git
+    path: helm/prometheus/
+    targetRevision: HEAD
     directory:
       recurse: true
   syncPolicy:
