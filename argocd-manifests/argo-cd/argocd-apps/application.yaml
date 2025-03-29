@@ -1,5 +1,3 @@
-# File: apps/argocd-apps.yaml
-
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -15,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/NATICH/demo.git
     path: helm/prometheus/
-    targetRevision: HEAD
+    targetRevision: main
     directory:
       recurse: true
   syncPolicy:
