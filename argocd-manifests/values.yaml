@@ -3932,4 +3932,12 @@ commitServer:
   # -- Priority class for the commit server pods
   # @default -- `""` (defaults to global.priorityClassName)
   priorityClassName: ""
+  prometheus:
+    name: prometheus
+    namespace: monitoring
+    repoURL: https://prometheus-community.github.io/helm-charts
+    chart: prometheus
+    targetRevision: 25.18.0  # adjust version
+    valueFiles: []
+    enabled: true
 
