@@ -11,6 +11,12 @@ spec:
     targetRevision: 25.18.0
     helm:
       releaseName: prometheus
+      values: |
+        server:
+          persistentVolume:
+            enabled: true
+            size: 10Gi
+            storageClass: standard
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
