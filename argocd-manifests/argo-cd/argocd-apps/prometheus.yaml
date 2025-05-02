@@ -18,7 +18,7 @@ spec:
         - name: namespace
           value: monitoring
         - name: valuesFile
-          value: argocd-manifests/argo-cd/app-templates/prometheus/values.yaml
+          value: values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

@@ -1,20 +1,12 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: prometheus-pv
+  name: prometheus-local-pv
 spec:
+  storageClassName: local-storage
   capacity:
     storage: 10Gi
   accessModes:
     - ReadWriteOnce
-  storageClassName: local-storage
-  local:
-    path: /storage/prometheus
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - util-server
+  hostPath:
+    path: "/storage/prometheus"
