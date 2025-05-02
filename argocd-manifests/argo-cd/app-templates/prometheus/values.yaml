@@ -10,17 +10,17 @@ prometheus:
     service:
       type: NodePort
       nodePort: 30090
-  alertmanager:
+alertmanager:
+  enabled: true
+  persistence:
     enabled: true
-    persistence:
-      enabled: true
-      storageClass: local-storage
-      accessModes:
-        - ReadWriteOnce
-      size: 5Gi
+    storageClass: local-storage
+    accessModes:
+      - ReadWriteOnce
+    size: 5Gi
 
 
-  pushgateway:
-    enabled: false
+pushgateway:
+  enabled: false
 
-  extraScrapeConfigs: []
+extraScrapeConfigs: []
