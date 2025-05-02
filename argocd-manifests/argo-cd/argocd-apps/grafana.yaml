@@ -8,16 +8,14 @@ spec:
   source:
     repoURL: https://github.com/NATICH/demo.git
     targetRevision: HEAD
-    chart: grafana
+    path: argocd-manifests/argo-cd/app-templates/grafana
     helm:
-      repoURL: https://grafana.github.io/helm-charts
-      releaseName: grafana
       valueFiles:
-        - values.yaml  # optional: only if you're using custom values
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
   syncPolicy:
     automated:
-      prune: true
       selfHeal: true
+      prune: true

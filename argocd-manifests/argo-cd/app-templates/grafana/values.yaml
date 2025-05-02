@@ -1,0 +1,12 @@
+persistence:
+  enabled: true
+  storageClassName: local-storage
+  accessModes:
+    - ReadWriteOnce
+  size: 5Gi
+
+adminPassword: "admin"
+
+service:
+  type: NodePort
+  nodePort: 32000
