@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: monitoring-apps
+  name: app-set
   namespace: argocd
 spec:
   generators:
@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/NATICH/demo.git
         revision: HEAD
         directories:
-          - path: argocd-manifests/argo-cd/argocd-apps/*
+          - path: argocd-manifests/argo-cd/app-templates/*
   template:
     metadata:
       name: '{{path.basename}}'
@@ -19,10 +19,13 @@ spec:
         repoURL: https://github.com/NATICH/demo.git
         targetRevision: HEAD
         path: '{{path}}'
+        helm:
+          valueFiles:
+            - values.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: monitoring
       syncPolicy:
         automated:
-          prune: true
           selfHeal: true
+          prune: true
