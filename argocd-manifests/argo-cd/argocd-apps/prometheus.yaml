@@ -6,28 +6,23 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://prometheus-community.github.io/helm-charts
-    chart: prometheus
-    targetRevision: 25.18.0
+    repoURL: https://github.com/NATICH/demo.git
+    targetRevision: HEAD
+    path: argocd-manifests/argo-cd/app-templates/prometheus
     helm:
-      releaseName: prometheus
-      values: |
-        server:
-          persistentVolume:
-            enabled: true
-            size: 10Gi
-            storageClass: local-path
-        alertmanager:
-          persistentVolume:
-            enabled: true
-            size: 2Gi
-            storageClass: local-path
+      parameters:
+        - name: name
+          value: prometheus
+        - name: chart
+          value: prometheus-community/prometheus
+        - name: namespace
+          value: monitoring
+        - name: valuesFile
+          value: argocd-manifests/argo-cd/app-templates/prometheus/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
   syncPolicy:
     automated:
-      prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+      prune: true

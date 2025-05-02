@@ -1,21 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
+  name: storage
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/NATICH/demo.git
     targetRevision: HEAD
-    path: argocd-manifests/argo-cd/app-templates/prometheus
-    helm:
-      valueFiles:
-        - values.yaml
+    path: argocd-manifests/k8s-resources
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: default
   syncPolicy:
     automated:
-      prune: true
       selfHeal: true
+      prune: true
