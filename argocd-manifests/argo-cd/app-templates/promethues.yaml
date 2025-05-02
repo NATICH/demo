@@ -1,19 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grafana
+  name: prometheus
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/NATICH/demo.git
     targetRevision: HEAD
-    chart: grafana
+    path: argocd-manifests/argo-cd/app-templates/prometheus
     helm:
-      repoURL: https://grafana.github.io/helm-charts
-      releaseName: grafana
       valueFiles:
-        - values.yaml  # optional: only if you're using custom values
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

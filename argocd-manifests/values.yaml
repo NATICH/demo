@@ -3940,4 +3940,15 @@ commitServer:
     targetRevision: 25.18.0  # adjust version
     valueFiles: []
     enabled: true
+    
+  grafana: 
+    adminPassword: "admin"
+    persistence:
+      enabled: true
+      storageClassName: local-path
+      size: 2Gi
+    service:
+      type: NodePort
+      port: 80
+      targetPort: 3000
 
