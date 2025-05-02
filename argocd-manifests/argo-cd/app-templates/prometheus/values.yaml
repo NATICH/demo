@@ -1,24 +1,26 @@
-alertmanager:
-  enabled: true
-  persistence:
+prometheus:
+  server:
+    retention: 7d
+    persistentVolume:
+      enabled: true
+      storageClass: local-storage
+      accessModes:
+        - ReadWriteOnce
+      size: 10Gi
+    service:
+      type: NodePort
+      nodePort: 30090
+  alertmanager:
     enabled: true
-    storageClass: local-storage
-    accessModes:
-      - ReadWriteOnce
-    size: 5Gi
+    persistence:
+      enabled: true
+      storageClass: local-storage
+      accessModes:
+        - ReadWriteOnce
+      size: 5Gi
 
-server:
-  persistentVolume:
-    enabled: true
-    storageClass: local-storage
-    accessModes:
-      - ReadWriteOnce
-    size: 10Gi
-  service:
-    type: NodePort
-    nodePort: 30090
 
-pushgateway:
-  enabled: false
+  pushgateway:
+    enabled: false
 
-extraScrapeConfigs: []
+  extraScrapeConfigs: []
