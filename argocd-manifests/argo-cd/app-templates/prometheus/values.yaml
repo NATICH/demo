@@ -12,7 +12,7 @@ prometheus:
       nodePort: 30090
 alertmanager:
   enabled: true
-  persistence:
+  persistentVolume:
     enabled: true
     storageClass: local-storage
     accessModes:
