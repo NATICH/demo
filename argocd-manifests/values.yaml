@@ -3932,27 +3932,6 @@ commitServer:
   # -- Priority class for the commit server pods
   # @default -- `""` (defaults to global.priorityClassName)
   priorityClassName: ""
-  prometheus:
-    name: prometheus
-    namespace: monitoring
-    repoURL: https://prometheus-community.github.io/helm-charts
-    chart: prometheus
-    targetRevision: 25.18.0  # adjust version
-    valueFiles: []
-    enabled: true
-    persistentVolume:
-      enabled: true
-      storageClass: local-storage
-      size: 10Gi
-    
-  grafana: 
-    adminPassword: "admin"
-    persistence:
-      enabled: true
-      storageClassName: local-storage
-      size: 2Gi
-    service:
-      type: NodePort
-      port: 80
-      targetPort: 3000
+
+  
 
