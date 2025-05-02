@@ -16,7 +16,12 @@ spec:
           persistentVolume:
             enabled: true
             size: 10Gi
-            storageClass: standard
+            storageClass: local-path
+        alertmanager:
+          persistentVolume:
+            enabled: true
+            size: 2Gi
+            storageClass: local-path
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
