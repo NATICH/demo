@@ -9,6 +9,7 @@ grafana:
   service:
     type: NodePort
     nodePort: 32200
+
   datasources:
     datasources.yaml:
       apiVersion: 1
@@ -18,6 +19,20 @@ grafana:
           access: proxy
           url: http://prometheus-server.monitoring.svc.cluster.local
           isDefault: true
+
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: default
+          orgId: 1
+          folder: ""
+          type: file
+          disableDeletion: false
+          updateIntervalSeconds: 10
+          options:
+            path: /var/lib/grafana/dashboards/default
+
   dashboards:
     default:
       node-exporter:
