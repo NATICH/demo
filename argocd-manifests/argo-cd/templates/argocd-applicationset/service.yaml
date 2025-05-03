@@ -14,7 +14,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: "v2.14.2"
 spec:
-  type: ClusterIP  
+  type: ClusterIP
   ports:
   - name: http-webhook
     port: 7000

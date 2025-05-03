@@ -13,7 +13,7 @@ metadata:
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: "v2.14.2"
-spec:  
+spec:
   ports:
   - name: redis
     port: 6379
