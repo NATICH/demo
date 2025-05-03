@@ -6,4 +6,4 @@ metadata:
     grafana_dashboard: "1"
 data:
   node-exporter.json: |-
-    {{ .Files.Get "dashboards/node-exporter.json" | indent 4 }}
+{{ .Files.Get "dashboards/node-exporter.json" | indent 4 }}
