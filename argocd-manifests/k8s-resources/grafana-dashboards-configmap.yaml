@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: my-dashboard-config
+  name: dashboards-config
   labels:
     grafana_dashboard: "1"
 data:
-  my-dashboard.json: |
-    {{ .Files.Get "argocd-manifests/argo-cd/app-templates/grafana/dashboards" | indent 4 }}
+  node-exporter.json: |
+    {{ .Files.Get "argocd-manifests/argo-cd/app-templates/grafana/dashboards/node-exporter.json" | indent 4 }}
