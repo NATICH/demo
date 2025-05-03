@@ -17,7 +17,7 @@ alertmanager:
     storageClass: local-storage
     accessModes:
       - ReadWriteOnce
-    size: 5Gi
+    size: 9Gi
 
 
 pushgateway:
