@@ -48,7 +48,7 @@ rules:
   - apiGroups:
       - batch
     resources:
-      
+
       - jobs
     verbs:
       - create
@@ -57,5 +57,5 @@ rules:
     resources:
       - workflows
     verbs:
-      
+
       - create
