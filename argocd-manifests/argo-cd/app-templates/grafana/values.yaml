@@ -32,4 +32,4 @@ grafana:
               path: /var/lib/grafana/dashboards/default
 
   dashboardsConfigMaps:
-    default: "argocd-manifests/k8s-resources/grafana-dashboards-default.yaml"
+    default: "dashboards-config"
