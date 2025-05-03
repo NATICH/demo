@@ -5,7 +5,9 @@ grafana:
     accessModes:
       - ReadWriteOnce
     size: 5Gi
+
   adminPassword: "admin"
+
   service:
     type: NodePort
     nodePort: 32200
