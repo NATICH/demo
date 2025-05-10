@@ -35,14 +35,7 @@ grafana:
           options:
             path: /var/lib/grafana/dashboards/default
 
-  extraVolumeMounts:
-    - name: dashboards
-      mountPath: /var/lib/grafana/dashboards/default
-      readOnly: true
-
-  extraVolumes:
-    - name: dashboards
-      projected:
-        sources:
-          - configMap:
-              name: dashboards-config
+  dashboards:
+    default:
+      node-exporter:
+        file: dashboards/node-exporter.json
