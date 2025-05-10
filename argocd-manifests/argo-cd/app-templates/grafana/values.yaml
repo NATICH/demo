@@ -38,4 +38,4 @@ grafana:
   dashboards:
     default:
       node-exporter:
-        file: dashboards/node-exporter.json
+        file: argocd-manifests/argo-cd/app-templates/grafana/dashboards/node-exporter.json
