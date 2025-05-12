@@ -38,6 +38,5 @@ grafana:
   dashboards:
     default:
       node-exporter:
-        gnetId: 1860
-        revision: 30
-        datasource: Prometheus
+        - dashboards/node-exporter.json
+          
