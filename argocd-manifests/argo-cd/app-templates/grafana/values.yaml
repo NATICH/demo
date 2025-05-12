@@ -39,6 +39,7 @@ grafana:
     default:
       node-exporter:
         gnetId: 1860
+        revision: 40
         datasource: Prometheus
       prometheus-stats:
         gnetId: 2
