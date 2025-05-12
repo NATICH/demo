@@ -38,5 +38,5 @@ grafana:
   dashboards:
     default:
       node-exporter:
-        - dashboards/node-exporter.json
+        file: dashboards/node-exporter.json
           
