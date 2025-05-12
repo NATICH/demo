@@ -37,8 +37,8 @@ grafana:
 
   dashboards:
     default:
-      node-exporter-test:
-        file: dashboards/node-exporter.json
+      node-exporter:
+        gnetId: 1860
       prometheus-stats:
         gnetId: 2
         revision: 2
