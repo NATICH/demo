@@ -5,7 +5,7 @@ grafana:
     accessModes:
       - ReadWriteOnce
     size: 5Gi
-
+    mountPath: /var/lib/grafana
   adminPassword: "admin"
 
   service:
@@ -28,9 +28,10 @@ grafana:
       providers:
         - name: default
           orgId: 1
-          folder: ""
+          folder: ''
           type: file
           disableDeletion: false
+          editable: true
           updateIntervalSeconds: 10
           options:
             path: /var/lib/grafana/dashboards/default
@@ -49,6 +50,11 @@ grafana:
       label: grafana_dashboard
       # Folder where to scan for dashboard files
       folder: /var/lib/grafana/dashboards
+      provider:
+        name: default
+        type: file
+        disableDeletion: false
+        allowUiUpdates: true
       # Default folder name
       defaultFolderName: default
       # Search configmaps in all namespaces
