@@ -39,4 +39,17 @@ grafana:
       default:
         node-exporter:
           file: dashboards/node-exporter-fixed.json
-            
+  
+  sidecar:
+    dashboards:
+      enabled: true
+      # Scan for changed dashboards every 30s
+      SCProvider: true
+      # Label that config maps with dashboards should have to be recognized
+      label: grafana_dashboard
+      # Folder where to scan for dashboard files
+      folder: /var/lib/grafana/dashboards
+      # Default folder name
+      defaultFolderName: default
+      # Search configmaps in all namespaces
+      searchNamespace: ALL
