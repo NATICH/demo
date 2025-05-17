@@ -36,10 +36,10 @@ grafana:
             path: /var/lib/grafana/dashboards/default
 
   dashboards:
-      default:
-        node-exporter:
-          file: dashboards/node-exporter-fixed.json
-  
+    default:
+      node-exporter:
+        file: dashboards/node-exporter-fixed.json
+
   sidecar:
     dashboards:
       enabled: true
